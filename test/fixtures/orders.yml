@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  reservation: one
+  chef: one
+
+two:
+  status: MyString
+  reservation: two
+  chef: two
