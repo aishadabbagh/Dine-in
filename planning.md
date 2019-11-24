@@ -26,7 +26,7 @@
 [ERD](https://drive.google.com/file/d/1IZ7U1zutBaZeeDmg91E1tlhVz_uCeyp_/view?usp=sharing)
 
 ## Wireframe
- [Book Restaurant](https://drive.google.com/file/d/11G-KjHaRULkrmBGyzopbdfrK8TXPjLEF/view?usp=sharing)
+ [Book Restaurant](https://drive.google.com/file/d/1CFHDWDsywVfYYT6pzrtPauyY00ZA1pzi/view?usp=sharing)
 
  [Menu](https://drive.google.com/file/d/1TmvY7EaHhc-1WZlKNFJe4bjgFLkvRzn3/view?usp=sharing)
 
