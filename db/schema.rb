@@ -41,10 +41,14 @@ ActiveRecord::Schema.define(version: 2019_11_23_085633) do
     t.string "status"
     t.bigint "reservation_id"
     t.bigint "chef_id"
+    t.bigint "user_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chef_id"], name: "index_orders_on_chef_id"
     t.index ["reservation_id"], name: "index_orders_on_reservation_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -61,8 +65,10 @@ ActiveRecord::Schema.define(version: 2019_11_23_085633) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "category"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -94,7 +100,10 @@ ActiveRecord::Schema.define(version: 2019_11_23_085633) do
   add_foreign_key "foods", "restaurants"
   add_foreign_key "orders", "chefs"
   add_foreign_key "orders", "reservations"
+  add_foreign_key "orders", "restaurants"
+  add_foreign_key "orders", "users"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
+  add_foreign_key "restaurants", "users"
   add_foreign_key "tables", "restaurants"
 end
