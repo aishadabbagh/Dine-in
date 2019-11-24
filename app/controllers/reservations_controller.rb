@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
     def index
-        @reservations = Reservation.all
+        @reservations = current_user.reservations.all
     end
+    
     def show
         @reservation = Reservation.find(params[:id])
     end
@@ -13,7 +14,7 @@ class ReservationsController < ApplicationController
     def create
         @reservation = Reservation.new(reservation_params)
         @reservation.save
-        redirect_to reservation_path
+        redirect_to @reservation
     end
     
     def edit
@@ -23,12 +24,12 @@ class ReservationsController < ApplicationController
     def update
         @reservation = Reservation.find(:reservation_id)
         @reservation.update(reservation_params)
-        redirect_to reservation_path
+        redirect_to @reservation
     end
     
     def destroy
         Reservation.find(params[:id]).destroy
-        redirect_to reservation_path
+        redirect_to @reservation
     end
     
     private
