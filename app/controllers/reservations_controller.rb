@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+    before_action :authenticate_user!, only: [:index , :show, :new, :create, :edit, :update, :destroy]
+
     def index
         @reservations = current_user.reservations.all
     end
