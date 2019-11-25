@@ -3,6 +3,8 @@
 
 <ul>
     <%@reservations.each do |reservation|%>
+   
+    <li><%=(reservation.time).to_s.split(" ")[1]%> time</li>
     <br/>
     <li><%=reservation.time%> time</li>
     <li><%=reservation.date%> date</li>

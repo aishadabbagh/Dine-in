@@ -9,11 +9,12 @@ class ReservationsController < ApplicationController
     
     def new
         @reservation = Reservation.new
+        @restaurant_id = params
     end
 
     def create
         params[:reservation][:user_id]= current_user.id
-        params[:reservation][:restaurant_id]= 2
+        # params[:reservation][:restaurant_id]= 2
         
 
         @reservation = Reservation.new(reservation_params)
