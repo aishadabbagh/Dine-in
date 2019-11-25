@@ -1,6 +1,6 @@
 <h1>List of reservations</h1>
 <ul>
     <%@reservations.each do |reservation|%>
-    <li><%= time_ago_in_words(reservation.time)%> time</li>
+    <li><%=reservation.time%> time</li>
 <% end %>
 </ul>
