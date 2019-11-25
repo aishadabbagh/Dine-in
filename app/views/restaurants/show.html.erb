@@ -3,12 +3,10 @@
 <%= link_to  "Book a table", new_reservation_path(@restaurant) %>
 <ul>
 <% @restaurant.foods.each do |f|%>
-<li>
-<%= f.name%>
-<br>
-<img src="<%= f.image%>" width=300>
-<br>
-<%= f.price%>
-</li>
+
+<li><%= f.name%></li>
+<li><%= f.price%></li>
+<%= image_tag(f.image, size: "100x100", alt: "")%>
+
 <%end%>
 </ul>
