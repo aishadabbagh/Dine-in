@@ -13,4 +13,20 @@ class RestaurantsController < ApplicationController
         # @restaurant_id = params
     end
 
+    def create
+        # params[:restaurant][:user_id]= current_user.id
+        # params[:reservation][:restaurant_id]= 2
+        
+
+        @restaurant = Restaurant.new(restaurant_params)
+        @restaurant.save
+        redirect_to @restaurant
+    end
+    
+ 
+ 
+    
+  
+    
+    
 end
