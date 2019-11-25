@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+    before_action   :is_admin  , only: [:new, :create, :edit, :update, :destroy]
 
     def index 
     @restaurants = Restaurant.all    
