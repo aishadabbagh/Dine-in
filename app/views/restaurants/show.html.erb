@@ -2,7 +2,11 @@
 
 <ul>
 <% @restaurant.foods.each do |f|%>
+
 <li><%= f.name%></li>
+<li><%= f.price%></li>
+<%= image_tag(f.image, size: "100x100", alt: "")%>
+
 <%end%>
 </ul>
 
