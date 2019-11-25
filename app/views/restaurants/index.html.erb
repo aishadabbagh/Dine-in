@@ -7,6 +7,14 @@
 <%= link_to  restaurant.name, restaurant_path(restaurant) %>
 <br>
 <%= restaurant.category %>
+<%if @role == "admin" %>
+<%= link_to "Edit restaurant", edit_restaurant_path(restaurant)%>  
+
+
+<%= link_to "Delete restaurant", restaurant_path(restaurant) ,method: :delete,
+     data: {confirm: "Are you sure you want to delete " + restaurant.name} %>
+<%end%>
+
 </li>
 <br>
 <%end%>
