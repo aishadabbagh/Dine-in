@@ -38,5 +38,15 @@ class RestaurantsController < ApplicationController
         redirect_to restaurants_path
     end
     
-    
+    private
+    def restaurant_params
+        params.require(:restaurant).permit(:name,:category, :user_id, :image)
+    end
+
+    def is_admin
+      if  current_user.Role =='admin'
+        return true
+      end
+      redirect_to restaurants_path
+    end
 end
