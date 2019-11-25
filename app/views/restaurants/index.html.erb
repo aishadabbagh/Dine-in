@@ -2,7 +2,11 @@
 
 <ul>
 <% @restaurants.each do |restaurant|%>
-<li><%= restaurant.name %></li>
+<li>
+<%= restaurant.name %>
+<br>
+<%= restaurant.category %>
+</li>
 <%= link_to  "Click", restaurant_path(restaurant) %>
 <%end%>
 </ul>
