@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Restaurant.destroy_all
+Food.destroy_all
+
 Restaurant.create(name: "Lusin", category: "Armanian", user_id: 1)
 Restaurant.create(name: "Al Orjouan", category: "Mediterranean", user_id: 2)
 Restaurant.create(name: "Zafran Indian Bistro", category: "Indian", user_id: 3)
