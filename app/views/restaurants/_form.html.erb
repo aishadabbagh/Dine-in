@@ -1,0 +1,23 @@
+<%if @role != "admin" %>
+<%= link_to "You are not admin",  restaurants_path %>
+<h1><%=@role%></h1>
+
+
+<%else%>
+<%= form_for @restaurant do |f| %>
+
+    <div>
+        <%= f.label :name, 'name' %>
+        <%= f.text_field :name %>
+        <%= f.label :category, 'category' %>
+        <%= f.text_field :category %>
+        <%= f.label :image, 'image' %>
+        <%= f.text_field :image %>
+        <%= f.label :user_id, 'user_id' %>
+        <%= f.text_field :user_id %>
+    </div>
+    <br>
+    <%= f.submit "Submit"%>
+  <% end %>
+  
+  <% end %>

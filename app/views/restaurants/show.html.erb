@@ -1,6 +1,5 @@
 <h1>Show Menu</h1>
-
-<%= link_to  "Book a table", new_reservation_path(@restaurant) %>
+<%= link_to "back to restaurants list",  restaurants_path %>
 <ul>
 <% @restaurant.foods.each do |f|%>
 
@@ -10,3 +9,4 @@
 
 <%end%>
 </ul>
+<%= link_to  "Book a table", new_reservation_path(@restaurant) %>

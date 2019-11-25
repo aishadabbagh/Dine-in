@@ -1,13 +1,20 @@
+<%if params[:format].nil? %>
+<%= link_to  "choose restaurants", restaurants_path%>
+
+
+<%else%>
 <%= form_for @reservation do |f| %>
     <div>
         <%= f.hidden_field :restaurant_id, value: params[:format]%>
     </div>
-    <div class="input-field col s6">
+    <div>
         <%= f.label :date, 'date' %>
         <%= f.date_field :date %>
         <%= f.label :time, 'time' %>
         <%= f.time_field :time %>
     </div>
     <br>
-    <%= f.submit "Submit", :class => "btn waves-effect waves-light" %>
+    <%= f.submit "Submit"%>
+  <% end %>
+  
   <% end %>
