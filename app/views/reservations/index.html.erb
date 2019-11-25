@@ -1,6 +1,7 @@
 <h1>List of reservations</h1>
 <ul>
     <%@reservations.each do |reservation|%>
-    <li><%=reservation.time%> time</li>
+   
+    <li><%=(reservation.time).to_s.split(" ")[1]%> time</li>
 <% end %>
 </ul>

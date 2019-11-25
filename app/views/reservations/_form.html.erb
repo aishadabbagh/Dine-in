@@ -1,4 +1,7 @@
 <%= form_for @reservation do |f| %>
+    <div>
+        <%= f.hidden_field :restaurant_id, value: params[:format]%>
+    </div>
     <div class="input-field col s6">
         <%= f.label :time, 'time' %>
         <%= f.text_field :time %>
