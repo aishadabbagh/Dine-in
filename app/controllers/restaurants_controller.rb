@@ -2,7 +2,9 @@ class RestaurantsController < ApplicationController
     before_action   :is_admin  , only: [:new, :create, :edit, :update, :destroy]
 
     def index 
+        if user_signed_in?
     @role= current_user.Role
+        end
     @restaurants = Restaurant.all    
     end
 
