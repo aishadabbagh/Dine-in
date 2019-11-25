@@ -23,7 +23,10 @@ class RestaurantsController < ApplicationController
         redirect_to @restaurant
     end
     
- 
+    def edit
+        @restaurant = Restaurant.find(params[:id])
+    end
+
  
     
   
