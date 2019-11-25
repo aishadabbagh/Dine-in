@@ -12,6 +12,10 @@ class ReservationsController < ApplicationController
     end
 
     def create
+        params[:reservation][:user_id]= current_user.id
+        params[:reservation][:restaurant_id]= 2
+        
+
         @reservation = Reservation.new(reservation_params)
         @reservation.save
         redirect_to @reservation
@@ -34,6 +38,6 @@ class ReservationsController < ApplicationController
     
     private
     def reservation_params
-        params.require(:reservation).permit(:time)
+        params.require(:reservation).permit(:time, :user_id, :restaurant_id)
     end
 end
