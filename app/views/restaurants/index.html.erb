@@ -2,11 +2,12 @@
 
 <ul>
 <% @restaurants.each do |restaurant|%>
+<%= image_tag(restaurant.image, size: "200x200", alt: "")%>
 <li>
-<%= restaurant.name %>
+<%= link_to  restaurant.name, restaurant_path(restaurant) %>
 <br>
 <%= restaurant.category %>
 </li>
-<%= link_to  "Click", restaurant_path(restaurant) %>
+<br>
 <%end%>
 </ul>
