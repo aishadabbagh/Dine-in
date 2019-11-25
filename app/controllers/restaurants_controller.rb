@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
     before_action   :is_admin  , only: [:new, :create, :edit, :update, :destroy]
 
     def index 
+    @role= current_user.Role
     @restaurants = Restaurant.all    
     end
 
@@ -10,12 +11,14 @@ class RestaurantsController < ApplicationController
     end
 
     def new
+        @role= current_user.Role
         @restaurant = Restaurant.new
+
         # @restaurant_id = params
     end
 
     def create
-        # params[:restaurant][:user_id]= current_user.id
+        @role= current_user.Role
         # params[:reservation][:restaurant_id]= 2
         
 
@@ -25,10 +28,12 @@ class RestaurantsController < ApplicationController
     end
     
     def edit
+        @role= current_user.Role
         @restaurant = Restaurant.find(params[:id])
     end
 
     def update
+        @role= current_user.Role
         @restaurant = Restaurant.find(params[:id])
         @restaurant.update(restaurant_params)
         redirect_to @restaurant
