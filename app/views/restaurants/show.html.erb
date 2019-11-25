@@ -1,7 +1,9 @@
-<h1>Show Restaurant</h1>
+<h1>Show Menu</h1>
 
 <ul>
-<% @restaurants.each do |r|%>
-<li><%= r.name %></li>
+<% @restaurant.foods.each do |f|%>
+<li><%= f.name%></li>
 <%end%>
 </ul>
+
+<%= link_to  "Book a table", new_reservation_path(@restaurant) %>

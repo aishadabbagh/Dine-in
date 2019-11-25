@@ -1,7 +1,8 @@
 <h1>Restaurant Index</h1>
 
 <ul>
-<% @restaurants.each do |r|%>
-<li><%= r.name %></li>
+<% @restaurants.each do |restaurant|%>
+<li><%= restaurant.name %></li>
+<%= link_to  "Click", restaurant_path(restaurant) %>
 <%end%>
 </ul>

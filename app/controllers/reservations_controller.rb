@@ -9,9 +9,14 @@ class ReservationsController < ApplicationController
     
     def new
         @reservation = Reservation.new
+        @restaurant_id = params
     end
 
     def create
+        params[:reservation][:user_id]= current_user.id
+        # params[:reservation][:restaurant_id]= 2
+        
+
         @reservation = Reservation.new(reservation_params)
         @reservation.save
         redirect_to @reservation
@@ -22,18 +27,18 @@ class ReservationsController < ApplicationController
     end
 
     def update
-        @reservation = Reservation.find(:reservation_id)
+        @reservation = Reservation.find(params[:id])
         @reservation.update(reservation_params)
         redirect_to @reservation
     end
     
     def destroy
         Reservation.find(params[:id]).destroy
-        redirect_to @reservation
+        redirect_to reservations_path
     end
     
     private
     def reservation_params
-        params.require(:reservation).permit(:time)
+        params.require(:reservation).permit(:time,:date, :user_id, :restaurant_id)
     end
 end

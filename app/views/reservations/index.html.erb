@@ -1,6 +1,17 @@
 <h1>List of reservations</h1>
+
 <ul>
     <%@reservations.each do |reservation|%>
-    <li><%= time_ago_in_words(reservation.time)%> time</li>
+   
+    <li><%=reservation.date%> <%=(reservation.time).to_s.split(" ")[1]%></li>
+
+    <a href="<%= edit_reservation_path(reservation) %>">Edit Reservation</a>
+    
+    <a data-confirm="Are you sure you want to delete <%= reservation.time %>?"
+     data-method="delete" href="/reservations/<%= reservation.id %>" 
+     rel="nofollow">Delete Reservation</a>
+     <%= link_to "Show", reservation_path(reservation) %>
+<br/>
 <% end %>
 </ul>
+
