@@ -1,6 +1,23 @@
 <h1>List of reservations</h1>
+    <%= link_to 'New Reservation', new_reservation_path %>
+
 <ul>
     <%@reservations.each do |reservation|%>
+    <br/>
     <li><%=reservation.time%> time</li>
+    <li><%=reservation.date%> date</li>
+    <a href="<%= edit_reservation_path(reservation) %>">Edit Reservation</a>
+    
+    <a data-confirm="Are you sure you want to delete <%= reservation.time %>?"
+     data-method="delete" href="/reservations/<%= reservation.id %>" 
+     rel="nofollow">Delete Reservation</a>
+     <%
+=begin%>
+ <%= link_to 'Show', reservation.id %> 
+<%
+=end%>
+     <%= link_to "Show", reservation_path(reservation) %>
+<br/>
 <% end %>
 </ul>
+
