@@ -1,9 +1,6 @@
-<%if params[:format].nil? %>
-<%= link_to  "choose restaurants", restaurants_path%>
 
-
-<%else%>
 <%= form_for @reservation do |f| %>
+
     <div>
         <%= f.hidden_field :restaurant_id, value: params[:format]%>
     </div>
@@ -17,4 +14,3 @@
     <%= f.submit "Submit"%>
   <% end %>
   
-  <% end %>
