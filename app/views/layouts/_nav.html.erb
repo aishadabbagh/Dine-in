@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#7575a3;">
  <a class="navbar-brand" href="restaurants">
     <img src="https://library.kissclipart.com/20180905/vzw/kissclipart-dine-clipart-dining-room-clip-art-cdf3fd8245306afd.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
     Dine In
@@ -17,11 +17,11 @@
         </ul>
         <span class="nav-item active">
             <%if !user_signed_in? %>
-            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-danger') %>
-            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-danger') %>
+            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
+            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
             <%end%>
             <%if user_signed_in? %>
-            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-primary', method: :delete) %>
+            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-primary', method: :delete, style:'background-color:#fabe58;') %>
             <%end%>
         </span>
         </div>
