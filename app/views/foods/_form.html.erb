@@ -1,0 +1,21 @@
+<%if current_user.Role != "manger" %>
+<%= link_to "You are not manger",  restaurants_path %>
+
+<%else%>
+
+<%= form_for [@restaurant,@food] do |f| %>
+<div>
+        <%= f.hidden_field :restaurant_id, value: params[:restaurant_id]%>
+    </div>
+    <div>
+        <%= f.label :name, 'name' %>
+        <%= f.text_field :name %>
+        <%= f.label :price, 'price' %>
+        <%= f.text_field :price %>
+        <%= f.label :image, 'image' %>
+        <%= f.text_field :image %>
+    </div>
+    <br>
+    <%= f.submit "Submit"%>
+  <% end %>
+  <% end %>

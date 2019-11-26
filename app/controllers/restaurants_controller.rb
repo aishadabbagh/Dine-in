@@ -9,21 +9,17 @@ class RestaurantsController < ApplicationController
     end
 
     def show 
-    @restaurant = Restaurant.find(params[:id])
+        @role=current_user.Role
+        @restaurant = Restaurant.find(params[:id])
     end
 
     def new
         @role= current_user.Role
         @restaurant = Restaurant.new
-
-        # @restaurant_id = params
     end
 
     def create
         @role= current_user.Role
-        # params[:reservation][:restaurant_id]= 2
-        
-
         @restaurant = Restaurant.new(restaurant_params)
         @restaurant.save
         redirect_to @restaurant
@@ -57,4 +53,10 @@ class RestaurantsController < ApplicationController
       end
       redirect_to restaurants_path
     end
+    def is_manger
+        if  current_user.Role =='manger'
+          return true
+        end
+        redirect_to restaurants_path
+      end
 end
