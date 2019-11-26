@@ -1,44 +1,46 @@
 class OrdersController < ApplicationController
-    def index
-        @oreders = current_user.oreders.all
+    def index 
+        @reservation = Reservation.find(params[:reservation_id])
+        @orders = @reservation.orders.all
     end
-    
-    def show
-        @oreder = current_user.oreders.find(params[:id])
+    def show 
+        @reservation = Reservation.find(params[:reservation_id])
+        @order = @reservation.orders.find(params[:id])
     end
-    
+
     def new
-        @oreder = Oreder.new
-        @restaurant_id = params
+        @reservation = Reservation.find(params[:reservation_id])
+        @order = Order.new
     end
 
     def create
-        params[:oreder][:user_id]= current_user.id
-        # params[:oreder][:restaurant_id]= 2
-        
-
-        @oreder = Oreder.new(oreder_params)
-        @oreder.save
-        redirect_to @oreder
+        @order = Order.new(order_params)
+        @order.save
+        redirect_to reservation_path(@order.reservation_id)
     end
     
     def edit
-        @oreder = Oreder.find(params[:id])
+        @reservation = Reservation.find(params[:reservation_id])
+        @order = @reservation.orders.find(params[:id])
     end
 
     def update
-        @oreder = Oreder.find(params[:id])
-        @oreder.update(oreder_params)
-        redirect_to @oreder
+        @reservation = Reservation.find(params[:reservation_id])
+        @order = @reservation.orders.find(params[:id])
+        @order.update(order_params)
+        redirect_to reservation_path(@reservation)
+
     end
     
     def destroy
-        Oreder.find(params[:id]).destroy
-        redirect_to oreders_path
+        @reservation = Reservation.find(params[:reservation_id])
+        @order = @reservation.orders.find(params[:id])
+        @order.destroy
+        # Order.find(params[:id]).destroy
+        redirect_to reservation_path(@reservation)
     end
-    
     private
-    def oreder_params
-        params.require(:oreder).permit(:time,:date, :user_id, :restaurant_id)
+    def order_params
+        params.require(:order).permit(:status)
     end
 end
