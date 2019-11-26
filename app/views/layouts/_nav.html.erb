@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar w/ text</a>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#7575a3;">
+ <a class="navbar-brand" href="restaurants">
+    <img src="https://library.kissclipart.com/20180905/vzw/kissclipart-dine-clipart-dining-room-clip-art-cdf3fd8245306afd.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Dine In
+  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,15 +11,18 @@
             <li class="nav-item active">
                 <%= link_to('Home', root_path, class: 'nav-link') %>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+            <li class="nav-item active">
+                <%= link_to('Reservations', reservations_path, class: 'nav-link') %>
             </li>
         </ul>
-        <span class="navbar-text">
-            sign up
+        <span class="nav-item active">
+            <%if !user_signed_in? %>
+            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
+            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
+            <%end%>
+            <%if user_signed_in? %>
+            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-primary', method: :delete, style:'background-color:#fabe58;') %>
+            <%end%>
         </span>
         </div>
     </nav>
