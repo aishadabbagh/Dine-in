@@ -1,6 +1,7 @@
 <ul>
 <% @foods.each do |food|%>
-<li><%= food.name %></li>
-<%= link_to  "Click", restaurant.foods %>
+<li><%= food.name%></li>
+<li><%= food.price%></li>
+<%= image_tag(food.image, size: "100x100", alt: "")%>
 <%end%>
 </ul>

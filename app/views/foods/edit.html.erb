@@ -1,0 +1,20 @@
+<h1>Editing Food</h1>
+<%
+=begin%>
+ <%= link_to 'Back', reservations_path %> 
+<%
+=end%>
+    <%
+=begin%>
+ <%if @reservation.restaurant_id.nil?%>
+    <%= link_to  "edit choose restaurants", restaurants_path%>
+  <%else%> 
+<%
+=end%>
+<h1>Edit <%= @food.name %></h1>
+<%= render 'foods/form' %>
+<%
+=begin%>
+ <%end%> 
+<%
+=end%>
