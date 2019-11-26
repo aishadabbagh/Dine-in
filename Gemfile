@@ -6,6 +6,9 @@ ruby '~> 2.5.1'
 
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
 gem 'devise', '~> 4.7', '>= 4.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
