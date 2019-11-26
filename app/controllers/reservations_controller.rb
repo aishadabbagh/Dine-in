@@ -15,9 +15,7 @@ class ReservationsController < ApplicationController
     end
 
     def create
-        params[:reservation][:user_id]= current_user.id
-        # params[:reservation][:restaurant_id]= 2
-        
+        params[:reservation][:user_id]= current_user.id        
 
         @reservation = Reservation.new(reservation_params)
         @reservation.save
