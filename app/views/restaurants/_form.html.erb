@@ -1,9 +1,11 @@
+ <%-#When other users try to alter with restaurant functionalities-%>
 <%if @role != "admin" %>
 <%= link_to "You are not admin",  restaurants_path %>
 <h1><%=@role%></h1>
 
 
 <%else%>
+ <%-# Rendering restaurant-%>
 <%= form_for @restaurant do |f| %>
 
     <div>
