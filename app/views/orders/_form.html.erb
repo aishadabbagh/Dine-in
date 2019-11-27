@@ -1,9 +1,0 @@
-<%= form_for [@restaurant,@food,@order] do |f| %>
-<div>
-        <%= f.hidden_field :restaurant_id, value: params[:restaurant_id]%>
-    </div>
-    <div>
-        <%= f.label :status, 'name' %>
-        <%= f.text_field :status %>
-    </div>
-  <% end %>

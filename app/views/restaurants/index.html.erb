@@ -1,4 +1,7 @@
 
+ <%-#View all restuarants-%>
+
+
 <div style="background-color:#CFDBD5;">
 <br>
 <% @restaurants.each do |restaurant|%>
@@ -18,6 +21,8 @@
 </div>
 </div>
 <br>
+
+ <%-#Admin functionalities-%>
 
 <%if @role == "admin" %>
 <%= link_to "Edit restaurant", edit_restaurant_path(restaurant)%>  

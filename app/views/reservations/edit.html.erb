@@ -1,5 +1,7 @@
+ <%-# Editing reservation-%>
 <h1>Editing Reservation</h1>
 <%= link_to 'Back', reservations_path %>
+ <%-# Reservation condition-%>
     <%if @reservation.restaurant_id.nil?%>
     <%= link_to  "edit choose restaurants", restaurants_path%>
   <%else%>

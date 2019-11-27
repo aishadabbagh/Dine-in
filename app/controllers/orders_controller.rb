@@ -1,47 +1,21 @@
 class OrdersController < ApplicationController
-    # Show all orders done by a guest (Seen by Restuarant manager, guest and admin)
-    def index 
-        @reservation = Reservation.find(params[:reservation_id])
-        @orders = @reservation.orders.all
-    end
-    def show 
-        @reservation = Reservation.find(params[:reservation_id])
-        @order = @reservation.orders.find(params[:id])
-    end
-    # Add order (Done by guest and admin)
-    def new
-        @reservation = Reservation.find(params[:reservation_id])
-        @order = Order.new
-    end
-
-    def create
-        @order = Order.new(order_params)
-        @order.save
-        redirect_to reservation_path(@order.reservation_id)
-    end
-    # Edit an order (Done by guest and admin)
-    def edit
-        @reservation = Reservation.find(params[:reservation_id])
-        @order = @reservation.orders.find(params[:id])
-    end
+    before_action :authenticate_user!, only: [:update]
 
     def update
-        @reservation = Reservation.find(params[:reservation_id])
-        @order = @reservation.orders.find(params[:id])
-        @order.update(order_params)
-        redirect_to reservation_path(@reservation)
+        
+        if (params[:method] == "add")
+         @order = Order.find(params[:id])
+        @food = Food.find(params[:food])
+        @order.foods << @food
+        redirect_to restaurant_foods_path(@food.restaurant_id, id: @order.reservation_id, order_id: @order.id)
+        else
+            @order = Order.find(params[:id])
+            @food = Food.find(params[:food])
+            @order.foods.find(@food.id).destroy
+           redirect_to reservation_path(@order.reservation_id)
+        end
+        
 
     end
-    #  Deleting orders (Done by guest and admin)
-    def destroy
-        @reservation = Reservation.find(params[:reservation_id])
-        @order = @reservation.orders.find(params[:id])
-        @order.destroy
-        # Order.find(params[:id]).destroy
-        redirect_to reservation_path(@reservation)
-    end
-    private
-    def order_params
-        params.require(:order).permit(:status)
-    end
+    
 end
