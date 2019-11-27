@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "restaurants#index"
+  resources :home
   resources :reservations do
     resources :orders
   end
