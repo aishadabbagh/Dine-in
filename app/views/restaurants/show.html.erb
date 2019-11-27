@@ -1,14 +1,19 @@
 <h1>Show Menu</h1>
+ <%-# If guest => will render restaurant list-%>
 <%= link_to "back to restaurants list",  restaurants_path %>
+ <%-# if manger => will render restuarant and functionalities-%>
 <%if @role == "manger" && current_user.id == @restaurant.user_id%>
 <%= link_to "add food", new_restaurant_food_path(@restaurant.id) %>
 <%end%>
 <ul>
+ <%-# Rendering all dishes for a restuarant-%>
 <% @restaurant.foods.each do |f|%>
 
 <li><%= f.name%></li>
 <li><%= f.price%></li>
 <%= image_tag(f.image, size: "100x100", alt: "")%>
+ <%-# Manager functionalities-%>
+
 <%if @role == "manger" && current_user.id == @restaurant.user_id%>
     <%= link_to "Edit food", edit_restaurant_food_path([@restaurant],[f])%>
 <%= link_to "Delete food", restaurant_food_path([@restaurant],[f]) ,method: :delete,

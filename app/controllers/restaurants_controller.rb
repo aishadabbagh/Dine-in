@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
     before_action   :is_admin  , only: [:new, :create, :edit, :update, :destroy]
-
+    # Show all restaurants (Seen by guest and admin)
     def index 
         if user_signed_in?
     @role= current_user.Role
@@ -9,10 +9,12 @@ class RestaurantsController < ApplicationController
     end
 
     def show 
+        if user_signed_in?
         @role=current_user.Role
+        end
         @restaurant = Restaurant.find(params[:id])
     end
-
+    # Add restaurant(Done by Restaurant manager and admin : Exclaimer 1 Restaurant per 1 Restaurant manager)
     def new
         @role= current_user.Role
         @restaurant = Restaurant.new
@@ -24,7 +26,7 @@ class RestaurantsController < ApplicationController
         @restaurant.save
         redirect_to @restaurant
     end
-    
+    # Edit restaurant information(Done by Restaurant manager and admin)
     def edit
         @role= current_user.Role
         @restaurant = Restaurant.find(params[:id])
@@ -36,7 +38,7 @@ class RestaurantsController < ApplicationController
         @restaurant.update(restaurant_params)
         redirect_to @restaurant
     end
-    
+    #  Deleting restaurant (Done by Restaurant manager and admin)
     def destroy
         Restaurant.find(params[:id]).destroy
         redirect_to restaurants_path
