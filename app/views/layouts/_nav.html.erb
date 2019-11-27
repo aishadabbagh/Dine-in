@@ -1,6 +1,6 @@
 
  <%-# Nav Bar-%>
-<nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color:#333533;">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#333533;color:#F5CB5C;height:10%;">
  <a class="navbar-brand mb-0 h1">
     <img src="https://library.kissclipart.com/20180905/vzw/kissclipart-dine-clipart-dining-room-clip-art-cdf3fd8245306afd.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
     Dine In
@@ -11,20 +11,20 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <%= link_to('Home', root_path, class: 'nav-link') %>
+                <%= link_to('Home', root_path, class: 'nav-link', style: "color:#F5CB5C") %>
             </li>
             <li class="nav-item active">
-                <%= link_to('Reservations', reservations_path, class: 'nav-link') %>
+                <%= link_to('Reservations', reservations_path, class: 'nav-link', style: "color:#F5CB5C") %>
             </li>
              <%-# Functionalities -%>
         </ul>
         <span>
             <%if !user_signed_in? %>
-            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', style:'background-color:#F5CB5C') %>
-            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', style:'background-color:#F5CB5C') %>
+            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C') %>
+            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C') %>
             <%end%>
             <%if user_signed_in? %>
-            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', method: :delete, style:'background-color:#F5CB5C') %>
+            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', method: :delete, style:'background-color:#F5CB5C') %>
             <%end%>
         </span>
         </div>
