@@ -7,12 +7,29 @@
     </div>
     <div>
 
-        <%= f.label :date, 'date' %>
-        <%= f.date_field :date %>
-        <%= f.label :time, 'time' %>
+
+<div class="wrapper fadeInDown text-warning">
+<div id="formContent" style="background-color:#333533;color::#F5CB5C;padding:5px;">
+
+<br>
+  <div class="field fadeIn first">
+     <%= f.label :date, 'Date ' %>
+   <%= f.date_field :date %>
+  </div>
+<br>
+  <div class="field fadeIn second">
+   <%= f.label :time, 'Time ' %>
         <%= f.time_field :time %>
-    </div>
-    <br>
-    <%= f.submit "Submit"%>
-  <% end %>
+  </div>
+<hr>
   
+  <div class="actions fadeIn fourth">
+   <%= f.submit "Confirm"%>
+  </div>
+
+
+
+</div>
+</div>
+<% end %>
+
