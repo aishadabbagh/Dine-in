@@ -2,27 +2,17 @@
  <%-#View all restuarants-%>
 
 
-<div>
-<br>
+
+<hr>
 <% @restaurants.each do |restaurant|%>
-<div class="container" style="padding:5px;background-color:#242423;width:70%;">
-<div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
-  <div class="carousel-inner ">
-    <div class="carousel-item active ">
-        <%= image_tag(restaurant.image, height: "350px", width: "", alt: "", class: "card-img d-block w-100 ")%>
-<div>
-    </div>
+<div class="card-group text-center container" style="width: 30rem;background-color:#F5CB5C;padding:5px;">
+  <div class="card bg-dark">
+    <h5 class="card-title container"> <%= image_tag(restaurant.image, size: "400", alt: "")%></h5>
+    <p class="card-text text-warning"><%= restaurant.category %></p>
+     <%= link_to('Book', restaurant_path(restaurant), class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C;') %>
   </div>
 </div>
-  <div class="card-img-overlay">
-<%= link_to image_tag(restaurant.image, size: "100x100", alt: "", class: "card-title"), restaurant_path(restaurant)%>
-    <div class="container ", style="color:#F5CB5C;"><%= restaurant.category %></div>
-    <br>
-  <%= link_to('Book', restaurant_path(restaurant), class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C;') %>
-  
-
-</div>
-<br>
+<hr>
 
  <%-#Admin functionalities-%>
 
@@ -33,10 +23,4 @@
 <%= link_to "Delete restaurant", restaurant_path(restaurant) ,method: :delete,
      data: {confirm: "Are you sure you want to delete " + restaurant.name} %>
 <%end%>
-
-
-<br>
 <%end%>
-</ul>
-
-</div>
