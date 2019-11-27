@@ -1,3 +1,11 @@
 
 <%= link_to 'Back', reservations_path %>
 <h1><%=@reservation.date%> <%=(@reservation.time).to_s.split(" ")[1]%></h1>
+<% @reservation.order.foods.each do |food|%>
+<li><%= food.name%></li>
+<li><%= food.price%></li>
+<%= image_tag(food.image, size: "100x100", alt: "")%>
+<%= link_to "Delete food", reservation_order_path(@reservation.id, @reservation.order.id, method: "delete", food: food) ,method: :patch,
+     data: {confirm: "Are you sure you want to delete " + food.name} %>
+
+<%end%>
