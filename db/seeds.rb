@@ -10,13 +10,25 @@ Restaurant.destroy_all
 Food.destroy_all
 #Initial Restaurants :Exclaimer Added restaurant ID to add dishes according to restaurant ID
 
-Restaurant.create(name: "Starbucks", category: "cafe",image: "https://cdnw.elicdn.com/Blog/wp-content/uploads/2015/10/280_starbucks-400x400.jpg", user_id: 1)
-Restaurant.create(name: "Lusin", category: "Armanian",image: "https://yastudio.net/wp-content/uploads/2018/03/Lusin-Logo-En-Work-By-YaStudio.jpg", user_id: 2)
-Restaurant.create(name: "Al Orjouan", category: "Mediterranean",image:"http://www.ksagate.co/al_reem/uploads/logos/%D8%A7%D9%84%D8%A7%D8%B1%D8%AC%D9%88%D8%A7%D9%86.jpg", user_id: 3)
-Restaurant.create(name: "Zafran Indian Bistro", category: "Indian",image:"https://images.deliveryhero.io/image/talabat/restaurants/Logo_2_636493761166317762.jpg", user_id: 4)
-Restaurant.create(name: "Shawarmer", category: "Fast food",image:"https://upload.wikimedia.org/wikipedia/commons/6/64/Shawarmer_logo.jpg", user_id: 5)
-Restaurant.create(name: "Sushi Yoshi", category: "japanese",image:"https://images.deliveryhero.io/image/talabat/restaurants/SY_Logo_-_Arabic_636673484569947894.jpg", user_id: 6)
-Restaurant.create(name: "Chili's", category: "American",image:"https://jobapplications.net/wp-content/uploads/chilis-logo.png", user_id: 7)
+User.create(email: "lamees@dinein.com",password: "123456", Name: "lamees", Phone_Number: "1234567890", Role: "admin")
+User.create(email: "mohammed@dinein.com",password: "123456", Name: "mohammed", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "Aisha@dinein.com",password: "123456", Name: "aisha", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "saud@dinein.com",password: "123456", Name: "saud", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "osama@dinein.com",password: "123456", Name: "osama", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "noura@dinein.com",password: "123456", Name: "noura", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "lojain@dinein.com",password: "123456", Name: "lojain", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "mohannad@dinein.com",password: "123456", Name: "mohannad", Phone_Number: "1234567890",Role: "manger")
+User.create(email: "hazim@dinein.com",password: "123456", Name: "hazim", Phone_Number: "1234567890")
+User.create(email: "mansour@dinein.com",password: "123456", Name: "mansour", Phone_Number: "1234567890")
+User.create(email: "usman@dinein.com",password: "123456", Name: "usman", Phone_Number: "1234567890")
+
+Restaurant.create(name: "Starbucks", category: "cafe",image: "https://cdnw.elicdn.com/Blog/wp-content/uploads/2015/10/280_starbucks-400x400.jpg", user_id: 2)
+Restaurant.create(name: "Lusin", category: "Armanian",image: "https://yastudio.net/wp-content/uploads/2018/03/Lusin-Logo-En-Work-By-YaStudio.jpg", user_id: 3)
+Restaurant.create(name: "Al Orjouan", category: "Mediterranean",image:"http://www.ksagate.co/al_reem/uploads/logos/%D8%A7%D9%84%D8%A7%D8%B1%D8%AC%D9%88%D8%A7%D9%86.jpg", user_id: 4)
+Restaurant.create(name: "Zafran Indian Bistro", category: "Indian",image:"https://images.deliveryhero.io/image/talabat/restaurants/Logo_2_636493761166317762.jpg", user_id: 5)
+Restaurant.create(name: "Shawarmer", category: "Fast food",image:"https://upload.wikimedia.org/wikipedia/commons/6/64/Shawarmer_logo.jpg", user_id: 6)
+Restaurant.create(name: "Sushi Yoshi", category: "japanese",image:"https://images.deliveryhero.io/image/talabat/restaurants/SY_Logo_-_Arabic_636673484569947894.jpg", user_id: 7)
+Restaurant.create(name: "Chili's", category: "American",image:"https://jobapplications.net/wp-content/uploads/chilis-logo.png", user_id: 8)
 
 
 Food.create(name: "Ice white mocha", price: 23, image: "https://timedotcom.files.wordpress.com/2017/12/starbucks-black-and-white-drinks.jpg?quality=85&w=305&h=305&crop=1", restaurant_id: Restaurant.ids[0])
