@@ -8,7 +8,7 @@
 
 Restaurant.destroy_all
 Food.destroy_all
-
+#Initial Restaurants :Exclaimer Added restaurant ID to add dishes according to restaurant ID
 Restaurant.create(name: "Lusin", category: "Armanian",image: "https://yastudio.net/wp-content/uploads/2018/03/Lusin-Logo-En-Work-By-YaStudio.jpg", user_id: 1)
 Restaurant.create(name: "Al Orjouan", category: "Mediterranean",image:"http://www.ksagate.co/al_reem/uploads/logos/%D8%A7%D9%84%D8%A7%D8%B1%D8%AC%D9%88%D8%A7%D9%86.jpg", user_id: 2)
 Restaurant.create(name: "Zafran Indian Bistro", category: "Indian",image:"https://images.deliveryhero.io/image/talabat/restaurants/Logo_2_636493761166317762.jpg", user_id: 3)
