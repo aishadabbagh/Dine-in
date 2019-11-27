@@ -21,9 +21,12 @@ class RestaurantsController < ApplicationController
     end
 
     def create
+        
         @role= current_user.Role
         @restaurant = Restaurant.new(restaurant_params)
         @restaurant.save
+        User.find(@restaurant.user_id).Role="manger"
+        
         redirect_to @restaurant
     end
     # Edit restaurant information(Done by Restaurant manager and admin)
@@ -36,6 +39,7 @@ class RestaurantsController < ApplicationController
         @role= current_user.Role
         @restaurant = Restaurant.find(params[:id])
         @restaurant.update(restaurant_params)
+         User.find(@restaurant.user_id).Role="manger"
         redirect_to @restaurant
     end
     #  Deleting restaurant (Done by Restaurant manager and admin)
