@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-    before_action :authenticate_user!, only: [:index , :show, :new, :create, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:index , :show, :create, :edit, :update, :destroy]
     # Show all reservation done by a guest (Seen by Restuarant manager and guest)
     def index
         @reservations = current_user.reservations.all
@@ -10,8 +10,13 @@ class ReservationsController < ApplicationController
     end
     # Add reservation (Done by guest)
     def new
-        @restaurant_id = params[:id]
+        if user_signed_in?
+@restaurant_id = params[:id]
         @reservation = Reservation.new
+        else
+            redirect_to new_user_session_path
+        end
+        
     end
 
     def create
