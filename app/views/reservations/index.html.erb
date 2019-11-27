@@ -1,16 +1,23 @@
  <%-# Reservation Guest view-%>
-<h1>List of reservations</h1>
 
-<ul>
+<br>
+<div class="card body text-center container text-warning bg-dark" style="width: 75rem;">List of Reservation</div>
     <%@reservations.each do |reservation|%>
-    <li><%=reservation.date%> <%=(reservation.time).to_s.split(" ")[1]%></li>
-
-    <%= link_to "Edit Reservation", edit_reservation_path(reservation)%>
-    
-    <%= link_to "Delete Reservation", reservation_path(reservation) ,method: :delete,
-     data: {confirm: "Are you sure you want to delete " +reservation.date.to_s} %>
-     <%= link_to "Show", reservation_path(reservation) %>
-<br/>
+<div class="card-body text-center" style="">
+<div class="card container text-warning" style="width: 18rem;background-color:#333533;color::#F5CB5C;padding:5px;">
+  <s class="card-body">
+    <h4 class="card-title mb-2"><%=reservation.date%></h4>
+    <p class="card-title mb-2 container"><%=(reservation.time).to_s.split(" ")[1]%></p>
+    <span class="btn"><%= link_to "Edit Reservation", edit_reservation_path(reservation), class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C'%></span>
+    <span class="btn"><%= link_to "Delete Reservation", reservation_path(reservation) ,method: :delete,
+     data: {confirm: "Are you sure you want to delete " +reservation.date.to_s}, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C' %></span>
+    <span class="btn"><%= link_to "Show", reservation_path(reservation),class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C' %></span>
+  </span>
+</div>
+</div>
+<br>>
 <% end %>
-</ul>
-    <%= link_to "Restaurant List", restaurants_path %>
+<hr>
+<div class="container">
+ <%= link_to "Restaurant List", restaurants_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0 container', style:'background-color:#F5CB5C' %></div>
+ <br>
