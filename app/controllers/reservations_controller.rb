@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
     before_action :authenticate_user!, only: [:index , :show, :new, :create, :edit, :update, :destroy]
-
+    # Show all reservation done by a guest (Seen by Restuarant manager and guest)
     def index
         @reservations = current_user.reservations.all
     end
@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     def show
         @reservation = current_user.reservations.find(params[:id])
     end
-    
+    # Add reservation (Done by guest)
     def new
         @restaurant_id = params[:id]
         @reservation = Reservation.new
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
         @res = @reservation.restaurant_id
         redirect_to restaurant_foods_path(@res, id: @reservation.id, order_id: @order.id)
     end
-    
+    # Edit reservation (Done by guest)
     def edit
         @reservation = Reservation.find(params[:id])
 
@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
         redirect_to reservations_path
 
     end
-    
+    #  Deleting reservation (Done by guest)
     def destroy
         Reservation.find(params[:id]).destroy
         redirect_to reservations_path

@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+    #   Show menu of each restaurant 
     def index 
         @restaurant = Restaurant.find(params[:restaurant_id])
         @foods = @restaurant.foods.all
@@ -7,7 +8,7 @@ class FoodsController < ApplicationController
         @restaurant = Restaurant.find(params[:restaurant_id])
         @food = @restaurant.foods.find(params[:id])
     end
-
+    #  adding dishes (Only done by restaurant owners)
     def new
         @restaurant = Restaurant.find(params[:restaurant_id])
         @food = Food.new
@@ -18,7 +19,7 @@ class FoodsController < ApplicationController
         @food.save
         redirect_to restaurant_path(@food.restaurant_id)
     end
-    
+    #   Editing dishes (Only done by restaurant owners)
     def edit
         @restaurant = Restaurant.find(params[:restaurant_id])
         @food = Food.find(params[:id])
@@ -31,7 +32,7 @@ class FoodsController < ApplicationController
         redirect_to restaurant_path(@restaurant)
 
     end
-    
+    #  Deleting dishes (Only done by restaurant owners)
     def destroy
         @restaurant = Restaurant.find(params[:restaurant_id])
         @food = @restaurant.foods.find(params[:id])

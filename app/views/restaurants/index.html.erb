@@ -1,3 +1,4 @@
+ <%-#View all restuarants-%>
 <h1>Restaurant Index</h1>
 
 <ul>
@@ -7,6 +8,7 @@
 <%= link_to  restaurant.name, restaurant_path(restaurant) %>
 <br>
 <%= restaurant.category %>
+ <%-#Admin functionalities-%>
 <%if @role == "admin" %>
 <%= link_to "Edit restaurant", edit_restaurant_path(restaurant)%>  
 
