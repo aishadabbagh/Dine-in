@@ -1,24 +1,46 @@
-# README
+# Dine-in
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## technologies used
+* ruby
+* rails
+* heroku
+* Bootstrap
 
-* Ruby version
+## User Story
 
-* System dependencies
+### Admin user
 
-* Configuration
+- As an admin I should be able to add and remove restaurants
+- As an admin I should be able to edit restaurants
 
-* Database creation
 
-* Database initialization
+### Customer User
 
-* How to run the test suite
+- As an user I should be able to sign in / sign up / sign out / delete account
+- As a user I should be able to update profile
+- As a user I should make a reservation with time and date in specific restaurant 
+- As a user I should be able to order from the restaurant I choose.
+- As a user I should be able to change / cancel order 
 
-* Services (job queues, cache servers, search engines, etc.)
+### Restaurant Manager
+- As a manager I can add or remove item in a menu.
+- As a manager I can edit item in a menu.
 
-* Deployment instructions
 
-* ...
+## ERD
+[ERD](https://i.imgur.com/PRUfk8b.png)
+
+## Wireframe
+ [Book Restaurant](https://drive.google.com/file/d/1CFHDWDsywVfYYT6pzrtPauyY00ZA1pzi/view?usp=sharing)
+
+ [Menu](https://drive.google.com/file/d/1TmvY7EaHhc-1WZlKNFJe4bjgFLkvRzn3/view?usp=sharing)
+
+ [Sign](https://drive.google.com/file/d/11G-KjHaRULkrmBGyzopbdfrK8TXPjLEF/view?usp=sharing)
+
+
+### [Demo](https://dine-in.herokuapp.com)
+
+
+ 
+
