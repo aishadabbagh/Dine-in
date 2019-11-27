@@ -3,5 +3,10 @@
 <li><%= food.name%></li>
 <li><%= food.price%></li>
 <%= image_tag(food.image, size: "100x100", alt: "")%>
+<%= link_to  "add", reservation_order_path(params[:id],params[:order_id],  method: "add",food: food), method: :patch%>
 <%end%>
 </ul>
+<% if !params[:id].nil? %>
+<%= link_to  "go to order", reservation_path(params[:id])%>
+
+<%end%>
