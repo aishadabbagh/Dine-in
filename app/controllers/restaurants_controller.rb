@@ -9,7 +9,9 @@ class RestaurantsController < ApplicationController
     end
 
     def show 
+        if user_signed_in?
         @role=current_user.Role
+        end
         @restaurant = Restaurant.find(params[:id])
     end
     # Add restaurant(Done by Restaurant manager and admin : Exclaimer 1 Restaurant per 1 Restaurant manager)
