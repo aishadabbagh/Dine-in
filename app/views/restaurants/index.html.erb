@@ -1,12 +1,24 @@
-<h1>Restaurant Index</h1>
 
-<ul>
-<% @restaurants.each do |restaurant|%>
-<%= image_tag(restaurant.image, size: "200x200", alt: "")%>
-<li>
-<%= link_to  restaurant.name, restaurant_path(restaurant) %>
+<div style="background-color:#CFDBD5;">
 <br>
-<%= restaurant.category %>
+<% @restaurants.each do |restaurant|%>
+<div class="container" style="padding:5px;background-color:#242423;">
+<div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
+  <div class="carousel-inner ">
+    <div class="carousel-item active ">
+        <%= image_tag(restaurant.image, height: "350px", width: "", alt: "", class: "card-img d-block w-100 ")%>
+<div>
+    </div>
+  </div>
+</div>
+  <div class="card-img-overlay">
+<%= link_to image_tag(restaurant.image, size: "100x100", alt: "", class: "card-title"), restaurant_path(restaurant)%>
+   <div> <p class="card-text"><%= restaurant.category %></p></div>
+  </div>
+</div>
+</div>
+<br>
+
 <%if @role == "admin" %>
 <%= link_to "Edit restaurant", edit_restaurant_path(restaurant)%>  
 
@@ -15,13 +27,9 @@
      data: {confirm: "Are you sure you want to delete " + restaurant.name} %>
 <%end%>
 
-</li>
+
 <br>
 <%end%>
 </ul>
 
-<%= link_to  "Sign In", new_user_session_path %>
-<%if user_signed_in? %>
-<%= link_to  "Sign Out", destroy_user_session_path, method: :delete %>
-<%end%>
-
+</div>

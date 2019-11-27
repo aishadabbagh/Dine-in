@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#7575a3;">
- <a class="navbar-brand" href="restaurants">
+<nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color:#333533;">
+ <a class="navbar-brand mb-0 h1">
     <img src="https://library.kissclipart.com/20180905/vzw/kissclipart-dine-clipart-dining-room-clip-art-cdf3fd8245306afd.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
     Dine In
   </a>
@@ -15,13 +15,13 @@
                 <%= link_to('Reservations', reservations_path, class: 'nav-link') %>
             </li>
         </ul>
-        <span class="nav-item active">
+        <span>
             <%if !user_signed_in? %>
-            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
-            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-danger', style:'background-color:#fabe58;') %>
+            <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', style:'background-color:#F5CB5C') %>
+            <%= link_to('Sign In', new_user_session_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', style:'background-color:#F5CB5C') %>
             <%end%>
             <%if user_signed_in? %>
-            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-primary', method: :delete, style:'background-color:#fabe58;') %>
+            <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-outline-secondary text-light my-2 my-sm-0', method: :delete, style:'background-color:#F5CB5C') %>
             <%end%>
         </span>
         </div>
