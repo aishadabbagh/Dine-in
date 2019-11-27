@@ -9,4 +9,5 @@
      data: {confirm: "Are you sure you want to delete " + food.name} %>
 
 <%end%>
+<br>
 <%= link_to "Back to menu",  restaurant_foods_path(@reservation.restaurant_id , id:@reservation.id, order_id: @reservation.order.id) %>
