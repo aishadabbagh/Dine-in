@@ -6,6 +6,7 @@
 * rails
 * heroku
 * Bootstrap
+* Postgresql
 
 ## User Story
 
