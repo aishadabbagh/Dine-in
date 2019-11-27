@@ -1,3 +1,4 @@
+ <%-# Nav Bar-%>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#7575a3;">
  <a class="navbar-brand" href="restaurants">
     <img src="https://library.kissclipart.com/20180905/vzw/kissclipart-dine-clipart-dining-room-clip-art-cdf3fd8245306afd.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -14,6 +15,7 @@
             <li class="nav-item active">
                 <%= link_to('Reservations', reservations_path, class: 'nav-link') %>
             </li>
+             <%-# Functionalities -%>
         </ul>
         <span class="nav-item active">
             <%if !user_signed_in? %>

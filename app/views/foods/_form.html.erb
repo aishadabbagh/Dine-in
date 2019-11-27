@@ -1,3 +1,4 @@
+<%-# When other users try to alter with Restaurant functionalities  -%>
 <%if current_user.Role != "manger" %>
 <%= link_to "You are not manger",  restaurants_path %>
 

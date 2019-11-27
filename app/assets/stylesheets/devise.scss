@@ -68,6 +68,8 @@
   
   
   
+
+
   /* FORM TYPOGRAPHY*/
   
   input[type=button], input[type=submit], input[type=reset]  {
@@ -103,6 +105,10 @@
     -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
+
+
+
+   /* TEXT INPUT*/
   
   input[type=text] {
     background-color: #f6f6f6;
@@ -133,8 +139,11 @@
   input[type=text]:placeholder {
     color: #cccccc;
   }
-  
 
+
+
+  
+   /* NUMBER INPUT*/
   input[type=number] {
     background-color: #f6f6f6;
     border: none;
@@ -165,6 +174,8 @@
     color: #cccccc;
   }
 
+
+  /* EMAIL INPUT*/
   
   input[type=email] {
     background-color: #f6f6f6;
@@ -196,6 +207,9 @@
     color: #cccccc;
   }
   
+
+  /* PASSWORD INPUT*/
+
   input[type=password] {
     background-color: #f6f6f6;
     border: none;
