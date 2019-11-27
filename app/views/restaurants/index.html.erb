@@ -2,10 +2,10 @@
  <%-#View all restuarants-%>
 
 
-<div style="background-color:#CFDBD5;">
+<div>
 <br>
 <% @restaurants.each do |restaurant|%>
-<div class="container" style="padding:5px;background-color:#242423;">
+<div class="container" style="padding:5px;background-color:#242423;width:70%;">
 <div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
   <div class="carousel-inner ">
     <div class="carousel-item active ">
@@ -16,9 +16,11 @@
 </div>
   <div class="card-img-overlay">
 <%= link_to image_tag(restaurant.image, size: "100x100", alt: "", class: "card-title"), restaurant_path(restaurant)%>
-   <div> <p class="card-text"><%= restaurant.category %></p></div>
-  </div>
-</div>
+    <div class="container ", style="color:#F5CB5C;"><%= restaurant.category %></div>
+    <br>
+  <%= link_to('Book', restaurant_path(restaurant), class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C;') %>
+  
+
 </div>
 <br>
 
