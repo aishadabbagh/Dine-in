@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
         else
             @order = Order.find(params[:id])
             @food = Food.find(params[:food])
-            @order.foods.find(@food.id).destroy
+            @order.foods.delete(@order.foods.find(@food.id))
            redirect_to reservation_path(@order.reservation_id)
         end
         
