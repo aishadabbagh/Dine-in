@@ -16,11 +16,15 @@ class ReservationsController < ApplicationController
 
     def create
         params[:reservation][:user_id]= current_user.id        
-
         @reservation = Reservation.new(reservation_params)
         @reservation.save
+         params[:order] = {
+                    reservation_id: @reservation.id
+                }
+        @order = Order.new(order_params)
+        @order.save
         @res = @reservation.restaurant_id
-        redirect_to restaurant_path(@res)
+        redirect_to restaurant_foods_path(@res, id: @reservation.id, order_id: @order.id)
     end
     # Edit reservation (Done by guest)
     def edit
@@ -47,5 +51,9 @@ class ReservationsController < ApplicationController
     end
     def reservation_params_up
         params.require(:reservation).permit(:time,:date)
+    end
+    def order_params
+        params.require(:order).permit(:reservation_id)
+        
     end
 end
