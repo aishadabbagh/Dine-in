@@ -1,5 +1,18 @@
  <%-#Rendering dish, price and picture-%>
-<li><%= @food.name%></li>
-<li><%= @food.price%></li>
-<%= image_tag(@food.image, size: "100x100", alt: "")%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 15rem;">
+                <%= image_tag(@food.image, class:"card-img-top")%>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#"><%= @food.name%></a></h5>
+                            <div class="price-wrap h5"> 
+                                <span class="price-new"><%= @food.price%></span>
+                            </div>        
+                    </div>
+	        </div> 
+        </div>
+           
+    </div>
+</div>    
 

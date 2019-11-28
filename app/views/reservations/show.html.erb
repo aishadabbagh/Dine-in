@@ -1,13 +1,37 @@
  <%-# Showing single reservation-%>
-<%= link_to 'Back', reservations_path %>
-<h1><%=@reservation.date%> <%=(@reservation.time).to_s.split(" ")[1]%></h1>
-<% @reservation.order.foods.each do |food|%>
-<li><%= food.name%></li>
-<li><%= food.price%></li>
-<%= image_tag(food.image, size: "100x100", alt: "")%>
-<%= link_to "Delete food", reservation_order_path(@reservation.id, @reservation.order.id, method: "delete", food: food) ,method: :patch,
-     data: {confirm: "Are you sure you want to delete " + food.name} %>
+<div class="bg-blurr"></div>
+     <div class="bg-text">
+          <h4>Reservation date <%=@reservation.date%> <%=(@reservation.time).to_s.split(" ")[1]%></h4>
+     </div>
 
-<%end%>
-<br>
-<%= link_to "Back to menu",  restaurant_foods_path(@reservation.restaurant_id , id:@reservation.id, order_id: @reservation.order.id) %>
+     <div class="col-sm-6">
+          <%= link_to 'Back to reservation list', reservations_path, class:"btn btn-primary btn-sm " %>
+     </div>
+
+<br><br><br><br>
+
+<div class="container">
+    <div class="row">
+          <% @reservation.order.foods.each do |food|%>
+               <div class="col-sm-6">
+                    <div class="card" style="width: 15rem;">
+                         <%= image_tag(food.image, class:"card-img-top")%>
+                              <div class="card-body">
+                                   <h5 class="card-title"><a href="#"><%= food.name%></a></h5>
+
+                                             <%= link_to "Delete food", reservation_order_path(@reservation.id, @reservation.order.id, method: "delete", food: food) ,method: :patch, data: {confirm: "Are you sure you want to delete" + food.name}, class:"btn btn-danger btn-sm float-right" %>
+                                        <div class="price-wrap h5"> 
+                                        <span class="price-new"><%= food.price%></span>
+                                   </div>        
+                            </div>
+	                </div> 
+                </div>
+            <%end%>
+    </div>
+</div>
+
+     <div class="col-sm-6">
+     <br>
+          <%= link_to "Back to menu",  restaurant_foods_path(@reservation.restaurant_id , id:@reservation.id, order_id: @reservation.order.id),  class:"btn btn-warning btn-sm " %>
+     </div>
+     <br>
