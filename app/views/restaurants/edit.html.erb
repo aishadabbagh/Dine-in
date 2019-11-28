@@ -1,6 +1,18 @@
  <%-# Editing restaurant name-%>
-<h1>Editing Restaurant</h1>
-<%= link_to 'Back', restaurants_path %>
-<h1>Edit <%= @restaurant.name %></h1>
+    <div class="bg-blurr"></div>
+        <div class="bg-text">
+            <h1>Editing Restaurant</h1>
+        
+        </div>
 
-<%= render 'restaurants/form' %>
+        <div class="col-sm-6">
+            <%= link_to 'Back', restaurants_path, class:"btn btn-warning btn-sm " %>
+        </div>
+
+    <br><br><br><br>
+
+        <h1>Edit <%= @restaurant.name %></h1>
+
+        <%= render 'restaurants/form' %>
+
+        <br>

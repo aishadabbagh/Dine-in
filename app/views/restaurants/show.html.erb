@@ -1,25 +1,53 @@
-<h1>Show Menu</h1>
+
+<div class="bg-blurr"></div>
+    <div class="bg-text">
+        <h4>Show Menu</h4>
+    </div>
+
  <%-# If guest => will render restaurant list-%>
-<%= link_to "back to restaurants list",  restaurants_path %>
+ 
+    <div class="col-sm-6">
+        <%= link_to "back to restaurants list",  restaurants_path , class:"btn btn-primary btn-sm pull-left "%>
  <%-# if manger => will render restuarant and functionalities-%>
-<%if @role == "manger" && current_user.id == @restaurant.user_id%>
-<%= link_to "add food", new_restaurant_food_path(@restaurant.id) %>
-<%end%>
-<ul>
+            <%if @role == "manger" && current_user.id == @restaurant.user_id%>
+                <%= link_to "add food", new_restaurant_food_path(@restaurant.id) %>
+            <%end%>
+    </div>
+
+<br><br><br><br>
+
  <%-# Rendering all dishes for a restuarant-%>
-<% @restaurant.foods.each do |f|%>
+<div class="container">
+    <div class="row">
+            <% @restaurant.foods.each do |f|%>
+                <div class="col-sm-6">
+                    <div class="card" style="width: 15rem;">
+                        <%= image_tag(f.image, class:"card-img-top") %>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="#"><%= f.name%></a></h5>
 
-<li><%= f.name%></li>
-<li><%= f.price%></li>
-<%= image_tag(f.image, size: "100x100", alt: "")%>
- <%-# Manager functionalities-%>
-
+                                    <div class="price-wrap h5"> 
+                                            <span class="price-new"><%= f.price%></span>
+                                    </div>        
+                            </div>
+	                </div> 
+                </div>
+           
+    </div>
+</div>
 <%if @role == "manger" && current_user.id == @restaurant.user_id%>
     <%= link_to "Edit food", edit_restaurant_food_path([@restaurant],[f])%>
 <%= link_to "Delete food", restaurant_food_path([@restaurant],[f]) ,method: :delete,
      data: {confirm: "Are you sure you want to delete " + f.name} %>
 <%end%>
 
-<%end%>
-</ul>
-<%= link_to  "Book a table", new_reservation_path(@restaurant, message: "choose date and time") %>
+
+ <%-# Manager functionalities-%>
+
+ <%end%>
+
+    <div class="col-sm-6">
+    <br>
+        <%= link_to  "Book a table", new_reservation_path(@restaurant, message: "choose date and time") , class:"btn btn-warning btn-sm"%>
+</div>
+<br>

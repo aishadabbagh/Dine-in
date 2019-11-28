@@ -1,14 +1,39 @@
+ <div class="bg-blurr"></div>
+    <div class="bg-text">
+        <h4>Restaurant Menu</h4>
+    </div>
+ 
  <%-# Rendering all dishes -%>
- <%= link_to "Back", restaurants_path %>
-<ul>
-<% @foods.each do |food|%>
-<li><%= food.name%></li>
-<li><%= food.price%></li>
-<%= image_tag(food.image, size: "100x100", alt: "")%>
-<%= link_to  "add", reservation_order_path(params[:id],params[:order_id],  method: "add",food: food), method: :patch%>
-<%end%>
-</ul>
-<% if !params[:id].nil? %>
-<%= link_to  "go to order", reservation_path(params[:id])%>
+    <div class="col-sm-6">
+        <%= link_to "Back", restaurants_path  , class:"btn btn-primary btn-sm pull-left " %>
+    </div>    
+    <br><br><br><br>
 
+<div class="container">
+    <div class="row">
+        <% @foods.each do |food|%>
+            <div class="col-sm-6">
+                <div class="card" style="width: 15rem;">
+                    <%= image_tag(food.image, class:"card-img-top") %>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#"><%= food.name%></a></h5>
+                                <%= link_to  "add", reservation_order_path(params[:id],params[:order_id],  method: "add",food: food), method: :patch, class:"btn btn-primary btn-sm"  %>
+                                <div class="price-wrap h5">
+                                     <span class="price-new"><%= food.price%></span>
+                                 </div>        
+                            </div>
+	                </div> 
+                </div>
+            <%end%>
+    </div>
+</div>
+
+
+
+    <div class="col-sm-6">
+        <br>
+<% if !params[:id].nil? %>
+            <%= link_to  "go to order", reservation_path(params[:id]),  class:"btn btn-warning btn-sm"%>
 <%end%>
+    </div>
+        <br>
