@@ -14,6 +14,9 @@
                 <%= link_to('Home', root_path, class: 'nav-link', style: "color:#F5CB5C") %>
             </li>
             <li class="nav-item active">
+                <%= link_to('Restaurants', restaurants_path, class: 'nav-link', style: "color:#F5CB5C") %>
+            </li>
+            <li class="nav-item active">
                 <%= link_to('Reservations', reservations_path, class: 'nav-link', style: "color:#F5CB5C") %>
             </li>
              <%-# Functionalities -%>
@@ -22,8 +25,10 @@
             <%if !user_signed_in? %>
             <%= link_to('Sign Up', new_user_registration_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C') %>
             <%= link_to('Sign In', new_user_session_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C') %>
+
             <%end%>
             <%if user_signed_in? %>
+            <%= link_to('Edit profile', edit_user_registration_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', style:'background-color:#F5CB5C') %>
             <%= link_to('Sign Out', destroy_user_session_path, class: 'btn btn-outline-secondary text-dark my-2 my-sm-0', method: :delete, style:'background-color:#F5CB5C') %>
             <%end%>
         </span>
