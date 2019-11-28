@@ -32,19 +32,19 @@
                             </div>
 	                </div> 
                 </div>
-            <%end%>
+           
     </div>
 </div>
-
-
- <%-# Manager functionalities-%>
-
 <%if @role == "manger" && current_user.id == @restaurant.user_id%>
     <%= link_to "Edit food", edit_restaurant_food_path([@restaurant],[f])%>
 <%= link_to "Delete food", restaurant_food_path([@restaurant],[f]) ,method: :delete,
      data: {confirm: "Are you sure you want to delete " + f.name} %>
 <%end%>
 
+
+ <%-# Manager functionalities-%>
+
+ <%end%>
 
     <div class="col-sm-6">
     <br>
