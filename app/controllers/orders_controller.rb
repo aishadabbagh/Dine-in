@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
         else
             @order = Order.find(params[:id])
             @food = Food.find(params[:food])
-            if @order.foods.find(@food.id).quantity == 1
+            if @order.foods.find(@food.id).quantity <= 1
                 @order.foods.delete(@order.foods.find(@food.id))
               else
                  @remove_food=@order.foods.find(@food.id)
